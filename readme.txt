@@ -3,8 +3,8 @@ Contributors: themeux, pxelcode, esratpopy
 Donate link: #
 Tags: elementor,hover image, elementor hover image,elementor image hover box,elementor image box
 Requires at least: 4.7
-Tested up to: 6.9
-Stable tag: 1.0.6
+Tested up to: 7
+Stable tag: 1.0.8
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -13,7 +13,11 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 == Description ==
 
 Enhance your Elementor page building experience with Filterable Gallery and Standard Image Gallery layout. Add powers to your page builder using our easy-to-use elements those were designed to make your next WordPress page design easier and 
-prettier than ever before.
+prettier than ever before. Comes with some powerful features alongs.
+
+== Short Description ==
+
+Create beautiful, fast, and responsive image galleries in WordPress with Pixi Image Gallery — optimized for modern websites and seamless user experience.
 
 ## DEMO ##
 	- Live Demo [live demo](https://pxelcode.com/plugins/pixi-gallery/)

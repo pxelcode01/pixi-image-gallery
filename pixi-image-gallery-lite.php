@@ -3,7 +3,7 @@
  * Plugin Name: Pixi Filterable Image Gallery 
  * Description: Creative Elementor Image Gallery, Filterable Gallery,Creative layout
  * Plugin URI:  #
- * Version:     1.0.5
+ * Version:     1.0.8
  * Author:      Esrat Sultana
  * Author URI:  https://esrat.net/
  * License:           GPL v2 or later
