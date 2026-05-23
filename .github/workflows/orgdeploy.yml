@@ -6,15 +6,15 @@ on:
       - '*'
 
 jobs:
-  tag:
-    name: WordPress Plugin Deploy
+  deploy:
+    name: Deploy Plugin
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: WordPress Plugin Deploy
+      - name: Deploy to WordPress.org
         uses: 10up/action-wordpress-plugin-deploy@stable
         env:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
