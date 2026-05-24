@@ -1,10 +1,10 @@
 === pixi Image Gallery ===
 Contributors: themeux, pxelcode, esratpopy
 Donate link: #
-Tags: elementor,hover image, elementor hover image,elementor image hover box,elementor image box
+Tags: image gallery, photo gallery, wordpress gallery, masonry gallery, responsive gallery, lightbox gallery, gallery block, elementor gallery, filterable gallery, ajax gallery, seo friendly gallery, pixi gallery
 Requires at least: 4.7
-Tested up to: 7
-Stable tag: 1.0.8
+Tested up to: 7.0
+Stable tag: 1.0.11
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -12,8 +12,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Enhance your Elementor page building experience with Filterable Gallery and Standard Image Gallery layout. Add powers to your page builder using our easy-to-use elements those were designed to make your next WordPress page design easier and 
-prettier than ever before. Comes with some powerful features alongs.
+Pixi Image Gallery is a fast, responsive, and SEO-friendly WordPress gallery plugin with masonry layouts, lightbox, AJAX filtering, Elementor support, and modern image showcase features.
 
 == Short Description ==
 

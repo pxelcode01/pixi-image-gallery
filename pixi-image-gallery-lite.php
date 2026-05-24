@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: Pixi Filterable Image Gallery 
- * Description: Creative Elementor Image Gallery, Filterable Gallery,Creative layout
+ * Description: Pixi Image Gallery is a fast, responsive, and SEO-friendly WordPress gallery plugin with masonry layouts, lightbox, AJAX filtering, Elementor support, and modern image showcase features.
  * Plugin URI:  #
- * Version:     1.0.8
+ * Version:     1.0.11
  * Author:      Esrat Sultana
  * Author URI:  https://esrat.net/
  * License:           GPL v2 or later
