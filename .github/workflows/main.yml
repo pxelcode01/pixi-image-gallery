@@ -1,0 +1,102 @@
+name: WordPress Plugin Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'   # Triggers on tags like v1.0.0, v2.3.1, etc.
+
+permissions:
+  contents: write  # Needed to create GitHub Releases
+
+jobs:
+  release:
+    name: Build & Release WordPress Plugin
+    runs-on: ubuntu-latest
+
+    steps:
+      # ─── 1. Checkout the tagged commit ───────────────────────────────────────
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # ─── 2. Extract version from tag (strips leading "v") ───────────────────
+      - name: Set version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_OUTPUT
+
+      # ─── 3. Update version in plugin main file & readme.txt ─────────────────
+      - name: Bump version numbers
+        run: |
+          PLUGIN_FILE=$(ls *.php | head -n 1)   # assumes main plugin file is in root
+          sed -i "s/Version: .*/Version: ${{ steps.version.outputs.VERSION }}/" "$PLUGIN_FILE"
+          sed -i "s/Stable tag: .*/Stable tag: ${{ steps.version.outputs.VERSION }}/" readme.txt || true
+
+      # ─── 4. Build the zip artifact (exclude dev files) ──────────────────────
+      - name: Build plugin zip
+        run: |
+          PLUGIN_SLUG=$(basename "$GITHUB_REPOSITORY")
+          mkdir -p dist
+
+          zip -r "dist/${PLUGIN_SLUG}-${{ steps.version.outputs.VERSION }}.zip" . \
+            --exclude "*.git*" \
+            --exclude ".github/*" \
+            --exclude "dist/*" \
+            --exclude "tests/*" \
+            --exclude "node_modules/*" \
+            --exclude "*.zip" \
+            --exclude ".env*" \
+            --exclude "phpunit*" \
+            --exclude "*.sh"
+
+          echo "ZIP_PATH=dist/${PLUGIN_SLUG}-${{ steps.version.outputs.VERSION }}.zip" >> $GITHUB_ENV
+          echo "PLUGIN_SLUG=${PLUGIN_SLUG}" >> $GITHUB_ENV
+
+      # ─── 5. Create GitHub Release and upload zip ────────────────────────────
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: "${{ env.PLUGIN_SLUG }} v${{ steps.version.outputs.VERSION }}"
+          body: |
+            ## What's Changed
+            See the [CHANGELOG.md](./CHANGELOG.md) for full details.
+
+            ### Installation
+            1. Download the zip below.
+            2. Go to **Plugins → Add New → Upload Plugin** in your WordPress admin.
+            3. Upload the zip and activate.
+          files: ${{ env.ZIP_PATH }}
+          draft: false
+          prerelease: ${{ contains(github.ref_name, '-beta') || contains(github.ref_name, '-rc') }}
+
+      # ─── 6. (Optional) Deploy to WordPress.org SVN ──────────────────────────
+      # Uncomment this block if you publish to the WP plugin directory.
+      #
+      # - name: Deploy to WordPress.org
+      #   uses: 10up/action-wordpress-plugin-deploy@stable
+      #   env:
+      #     SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+      #     SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+      #     SLUG: your-plugin-slug   # Replace with your WP.org slug
+
+      # ─── 7. Notify Slack on success ──────────────────────────────────────────
+      - name: Notify Slack
+        if: success()
+        uses: slackapi/slack-github-action@v1
+        with:
+          payload: |
+            {
+              "text": ":rocket: *${{ env.PLUGIN_SLUG }}* v${{ steps.version.outputs.VERSION }} released successfully!",
+              "attachments": [
+                {
+                  "color": "good",
+                  "fields": [
+                    { "title": "Repository", "value": "${{ github.repository }}", "short": true },
+                    { "title": "Tag", "value": "${{ github.ref_name }}", "short": true },
+                    { "title": "Release", "value": "https://github.com/${{ github.repository }}/releases/tag/${{ github.ref_name }}", "short": false }
+                  ]
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
