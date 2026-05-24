@@ -1,112 +1,85 @@
-=== pixi Image Gallery ===
+=== Pixi Image Gallery ===
 Contributors: themeux, pxelcode, esratpopy
-Donate link: #
-Tags: image gallery, photo gallery, wordpress gallery, masonry gallery, responsive gallery, lightbox gallery, gallery block, elementor gallery, filterable gallery, ajax gallery, seo friendly gallery, pixi gallery
-Requires at least: 4.7
-Tested up to: 7.0
+Tags: gallery, image gallery, masonry, lightbox, elementor
+Requires at least: 5.0
+Tested up to: 6.5
+Requires PHP: 7.4
 Stable tag: 1.0.12
-Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
+Create beautiful, fast, responsive image galleries in WordPress with Pixi Image Gallery — built for modern websites.
 
 == Description ==
 
 Pixi Image Gallery is a fast, responsive, and SEO-friendly WordPress gallery plugin with masonry layouts, lightbox, AJAX filtering, Elementor support, and modern image showcase features.
 
-== Short Description ==
+Whether you're a photographer, designer, or business owner, Pixi Image Gallery gives you everything you need to showcase images beautifully — without slowing down your site.
 
-Create beautiful, fast, and responsive image galleries in WordPress with Pixi Image Gallery — optimized for modern websites and seamless user experience.
+**Key Features:**
 
-## DEMO ##
-	- Live Demo [live demo](https://pxelcode.com/plugins/pixi-gallery/)
-
-== Completely Customizable ==
-
-Each element comes with a bunch of options to customize your website in every possible way. You can achieve nearly any design with your imagination.
+* 🖼️ Masonry & grid layouts
+* 🔍 Lightbox with smooth transitions
+* ⚡ AJAX filtering by category
+* 📱 Fully responsive on all devices
+* 🔌 Elementor widget support
+* 🚀 Optimized for speed and SEO
+* 🎨 Customizable styles and colors
+* ♿ Accessibility-friendly markup
 
 == Installation ==
-	
-    = Modern Way: =
-    1. Go to the WordPress / plugins
-    2. Search For "pixi-image-gallery".
-    3. Install in 1-click
 
-    = Old Way: =
-    1. Upload `pixi-image-gallery` to the `/wp-content/plugins/` directory
-    2. Activate the plugin through the 'Plugins' menu in WordPress
-	
+1. Upload the plugin files to `/wp-content/plugins/pixi-image-gallery`, or install the plugin through the WordPress Plugins screen directly.
+2. Activate the plugin through the **Plugins** screen in WordPress.
+3. Go to **Pixi Gallery** in your admin menu to create your first gallery.
+4. Use the shortcode `[pixi_gallery id="1"]` or the Elementor widget to embed it anywhere.
 
 == Frequently Asked Questions ==
 
-= Does pixi Image Gallery work with all the themes?  =
-Pixi Image Gallery works all the themes that respect the coding standards of WordPress set by its Codex. It is recommended to use Elementor’s Hello Theme, a lightweight blank canvas, 
-to enjoy full flexibility when using Elementor, and optimize your experience.
+= Is Pixi Image Gallery free? =
 
-= How do I install This Plugin ?  =
-To install the free version of Elementor, follow the steps below:
-From your WordPress dashboard -> Go to Plugins -> Click on ‘Add new’-> In the Search field, enter pixi Image Gallery and choose pixi Image Gallery.
-Press install -> After installation, click Activate.
+Yes! The core plugin is completely free. Premium add-ons may be available separately.
 
-= Is it necessary to install and activate Elementor Page builder plugin? =
+= Does it work with my theme? =
 
-Yes, of course. Elementor page builder and must be activated on your platform.
+Pixi Image Gallery is designed to work with any well-coded WordPress theme.
 
+= Does it support Elementor? =
 
-= Does is work with other page builder? =
-NO. It's only compatiable for Elementor.
+Yes, a dedicated Elementor widget is included out of the box.
 
-= Do I need to know how to code?  =
-No! Elementor provides you with all the widgets and features that you need to build a proffesional website without using code.
+= Will it slow down my site? =
 
+No. The plugin uses lazy loading and optimized assets to keep your site fast.
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Screenshots are stored in the /assets directory.
-2. This is the second screen shot
+1. Gallery grid view with masonry layout
+2. Lightbox with navigation arrows
+3. AJAX category filtering in action
+4. Elementor widget panel
+5. Admin gallery management screen
 
 == Changelog ==
 
+= 1.0.12 =
+* New layout Added
+* Fixed lightbox z-index conflict with some themes
+* Minor CSS improvements for mobile devices
+
 = 1.0.6 =
-* New Two Style Added
-* Added New Widget 
+* Improved AJAX filtering performance
+* Fixed lightbox z-index conflict with some themes
+* Minor CSS improvements for mobile devices
 
 = 1.0.5 =
-* New Two Style Added
+* Added Elementor widget support
+* Improved accessibility markup
 
-= 1.0.4 =
-* Widget Responsive issue fixed. For normal gallery 
-
-= 1.0.3 =
-* Widget Style added
-
-
-= 1.0.2 =
-* Added 2 different content style in filter widget
-
-= 1.0.1 =
-* Added Custom Post Type Filterable Gallery Items
-* Added Content Support
-* Fixed filtering issue
-
-= 1.0 =
-* A change since the previous version.
-* Another change.
-
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
+= 1.0.0 =
+* Initial release
 
 == Upgrade Notice ==
 
-= 1.0 =
-Initial Release
-
-
-
-== Features ==
-
-1. 4 creative Layout
-2. Filterable Layout
-3. Fully Customizable
-4. Fully Responsive 
-
+= 1.0.6 =
+Recommended update — includes performance improvements and bug fixes.
